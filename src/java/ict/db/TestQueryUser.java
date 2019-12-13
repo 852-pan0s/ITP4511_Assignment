@@ -1,0 +1,33 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ict.db;
+
+/**
+ *
+ * @author panos
+ */
+import ict.bean.User;
+import ict.db.UserDB;
+import java.util.ArrayList;
+
+public class TestQueryUser {
+
+    public static void main(String[] arg) {
+
+        // Connect DB
+        String url = "jdbc:mysql://localhost:3306/itp4511_assignment";
+        String username = "root";
+        String password = "";
+        UserDB custDb = new UserDB(url, username, password);
+
+        // Query All Customer
+        ArrayList<User> list = custDb.queryUser();
+        System.out.println("---Query All Customers---");
+        for (User u : list) {
+            System.out.println("ID: " + u.getUid());
+        }
+    }
+}
