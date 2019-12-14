@@ -6,7 +6,7 @@
 package ict.servlet;
 
 import ict.bean.User;
-import ict.db.UserDB;
+import ict.db.ProjDB;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,7 +23,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "LoginController", urlPatterns = {"/login"})
 public class LoginController extends HttpServlet {
 
-    private UserDB db;
+    private ProjDB db;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
@@ -97,7 +97,7 @@ public class LoginController extends HttpServlet {
         String dbUser = this.getServletContext().getInitParameter("dbUser");
         String dbPassword = this.getServletContext().getInitParameter("dbPassword");
         String dbUrl = this.getServletContext().getInitParameter("dbUrl");
-        db = new UserDB(dbUrl, dbUser, dbPassword);
+        db = new ProjDB(dbUrl, dbUser, dbPassword);
         db.addUserInfo("1", "xyz", "123");
     }
 }

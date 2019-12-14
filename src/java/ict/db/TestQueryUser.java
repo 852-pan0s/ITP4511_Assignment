@@ -9,9 +9,14 @@ package ict.db;
  *
  * @author panos
  */
+import ict.bean.Classes;
+import ict.bean.Student;
 import ict.bean.User;
-import ict.db.UserDB;
+import ict.db.ProjDB;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class TestQueryUser {
 
@@ -21,13 +26,18 @@ public class TestQueryUser {
         String url = "jdbc:mysql://localhost:3306/itp4511_assignment";
         String username = "root";
         String password = "";
-        UserDB custDb = new UserDB(url, username, password);
+        ProjDB db = new ProjDB(url, username, password);
 
         // Query All Customer
-        ArrayList<User> list = custDb.queryUser();
+        ArrayList<User> list = db.queryUser();
         System.out.println("---Query All Customers---");
         for (User u : list) {
             System.out.println("ID: " + u.getUid());
+        }
+        Classes c = db.queryClassByTid("jesse");
+        System.out.println("Class ID: " +c.getTid());
+        for(Student s: c.getStudents()){
+        System.out.println("Studnet: " +s.getFirstName());    
         }
     }
 }

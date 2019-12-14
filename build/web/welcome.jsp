@@ -20,6 +20,6 @@
             <input type="hidden" name="action" value="logout">
             <input type="submit" valye="Logout" value="Logout" name="logoutButton">
         </form>
-        <a href="brandController?action=list">getAllBrands</a><br>
+        <a href="RollCallController?action=rollCall&uid=<jsp:getProperty name="user" property="uid" />">Roll Call</a><br>
     </body>
 </html>
